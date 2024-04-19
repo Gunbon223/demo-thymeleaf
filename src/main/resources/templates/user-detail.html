@@ -8,6 +8,7 @@
 <h1 th:if="${user == null}">User not found</h1>
 
 <th:block th:if="${user != null}">
+    <h1>User found</h1>
     <ul>
         <li th:text="'ID: ' +  ${user.getId()}">ID</li>
         <li th:text= "|Name: ${user.getName()}|" >Name</li>
@@ -15,6 +16,5 @@
         <li th:text="|Sex ${user.isStatus() ? 'Male' : 'Female'}|">Sex</li>
     </ul>
 </th:block>
-<h1>User found</h1>
 </body>
 </html>

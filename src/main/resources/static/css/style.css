@@ -6,3 +6,8 @@ body {
     background-color: black;
     color: aquamarine;
 }
+
+.active{
+    background-color: #4CAF50;
+    color:white;
+}

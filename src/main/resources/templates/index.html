@@ -1,10 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-$END$
+<h1 > Welcome to home city</h1>
+<h2> User list</h2>
+<ul th:each="user : ${users}" >
+    <li th:text="'ID: ' +  ${user.getId()}">ID</li>
+    <li th:text= "|Name: ${user.getName()}|" >Name</li>
+    <li><th:block th:text="|Age: ${user.getAge()}|"></th:block></li>
+    <li th:text="|Sex ${user.isStatus() ? 'Male' : 'Female'}|">Sex</li>
+
+</ul>
+
+<table border="1">
+    <tbody>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Sex</th>
+    </thead>>
+    <!-- bien state luu trang thai  -->
+    <tr th:each="user, state : ${users}" th:classappend="${state.even ?'active' :''}" >
+        <td th:text="${user.getId()}">ID</td>
+        <td th:text="${user.getName()}">Name</td>
+        <td th:text="${user.getAge()}">Age</td>
+        <td th:text="${user.isStatus() ? 'Male' : 'Female'}">Sex</td>
+
+        <!--Truyen duong dan -->
+        <td>
+            <a th:href="@{/users/{id} (id=${user.getId()})}">
+                Xem chi tiet
+            </a>
+
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<button>
+    <a th:href="@{/}">Tất cả</a>
+</button>
+<button>
+    <a th:href="@{/?status=true}">Nam</a>
+</button>
+<button>
+    <a th:href="@{/?status=false}">Nữ</a>
+</button>
+
+
+<script th:scr="@{/js/app.js}"></script>
 </body>
 </html>
