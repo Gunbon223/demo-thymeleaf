@@ -16,7 +16,7 @@ public class BvnNumsController {
         return "/admin/index";
     }
 
-    //        <td><a th:href="@{/list/even}">Tìm các giá trị chẵn trong list</a></td>
+
     @GetMapping("/bvn/c1")
     public String c1(Model model) {
         List<Integer> evenNums = nums.stream()
