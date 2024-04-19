@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiet user</title>
+</head>
+<body>
+<h1 th:if="${user == null}">User not found</h1>
+
+<th:block th:if="${user != null}">
+    <ul>
+        <li th:text="'ID: ' +  ${user.getId()}">ID</li>
+        <li th:text= "|Name: ${user.getName()}|" >Name</li>
+        <li><th:block th:text="|Age: ${user.getAge()}|"></th:block></li>
+        <li th:text="|Sex ${user.isStatus() ? 'Male' : 'Female'}|">Sex</li>
+    </ul>
+</th:block>
+<h1>User found</h1>
+</body>
+</html>
